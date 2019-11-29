@@ -149,20 +149,14 @@
     <Compile Include="Connection.cs" />
     <Compile Include="GraphClient.cs" />
     <Compile Include="GraphClientConfig.cs" />
-    <Compile Include="GraphClientContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SharePointContext.cs" />
+    <Compile Include="TenantGroup.cs" />
     <Compile Include="TokenCacheHelper.cs" />
-    <Compile Include="TokenHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SharePointContext.vb" />
-    <Content Include="TokenHelper.vb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
