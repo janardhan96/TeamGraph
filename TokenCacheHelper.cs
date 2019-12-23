@@ -30,16 +30,23 @@ using Microsoft.Identity.Client;
 
 namespace TeamsGraph
 {
-    static class TokenCacheHelper
+    class TokenCacheHelper
     {
         /// <summary>
         /// Path to the token cache
         /// </summary>
-        public static readonly string CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin3";
+        public string CacheFilePath;
 
         private static readonly object FileLock = new object();
 
-        public static void BeforeAccessNotification(TokenCacheNotificationArgs args)
+         internal TokenCacheHelper(ITokenCache tokenCache, string fileName)
+        {
+            CacheFilePath = fileName;
+            tokenCache.SetBeforeAccess(BeforeAccessNotification);
+            tokenCache.SetAfterAccess(AfterAccessNotification);
+        }
+
+        public void BeforeAccessNotification(TokenCacheNotificationArgs args)
         {
             lock (FileLock)
             {
@@ -49,7 +56,7 @@ namespace TeamsGraph
             }
         }
 
-        public static void AfterAccessNotification(TokenCacheNotificationArgs args)
+        public void AfterAccessNotification(TokenCacheNotificationArgs args)
         {
             // if the access operation resulted in a cache update
             if (args.HasStateChanged)
@@ -63,10 +70,6 @@ namespace TeamsGraph
             }
         }
 
-        internal static void EnableSerialization(ITokenCache tokenCache)
-        {
-            tokenCache.SetBeforeAccess(BeforeAccessNotification);
-            tokenCache.SetAfterAccess(AfterAccessNotification);
-        }
+       
     }
 }
