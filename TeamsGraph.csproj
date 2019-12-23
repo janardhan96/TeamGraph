@@ -36,6 +36,9 @@
     <Reference Include="AzureFunctionsForSharePoint.Common, Version=1.1.6555.25559, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\AzureFunctionsForSharePoint.Common.1.1.6555.25559\lib\net452\AzureFunctionsForSharePoint.Common.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.17.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>packages\HtmlAgilityPack.1.11.17\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Graph, Version=1.20.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Graph.1.20.0\lib\net45\Microsoft.Graph.dll</HintPath>
     </Reference>
